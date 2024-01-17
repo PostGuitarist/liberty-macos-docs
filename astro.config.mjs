@@ -5,7 +5,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'LU CS Docs',
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
@@ -14,7 +14,8 @@ export default defineConfig({
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', link: '/guides/example/' },
+						{ label: 'Setup VSCode for C++', link: '/guides/example/' },
+						// { label: 'Setup Azure for Databases', link: '/guides/example/' },
 					],
 				},
 				{
