@@ -7,15 +7,15 @@ export default defineConfig({
 		starlight({
 			title: 'LU CS Docs',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/PostGuitarist/liberty-macos-docs',
 			},
 			sidebar: [
 				{
 					label: 'Guides',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Setup VSCode for C++', link: '/guides/example/' },
-						// { label: 'Setup Azure for Databases', link: '/guides/example/' },
+						{ label: 'Setup VSCode for C++', link: '/guides/vscode-setup/' },
+						{ label: 'Setup Azure for Databases', link: '/guides/azuredb-setup/' },
 					],
 				},
 				{
