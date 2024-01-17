@@ -2,5 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/another": "pages/another.js",
+  "/advanced/satori": "pages/advanced/satori.js",
+  "/advanced": "pages/advanced.js",
   "/": "pages/index.js"
 }
