@@ -1,7 +1,8 @@
 {
   "index": "Introduction",
   "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "cpp-dev": "C++ Development",
+  "environment": "Setting Up Your Environment",
   "about": {
     "title": "About",
     "type": "page"
