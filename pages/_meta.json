@@ -1,14 +1,8 @@
 {
   "index": "Introduction",
   "another": "Another Page",
-  "cpp-dev": {
-    "title": "C++ Development",
-    "type": "folder"
-  },
-  "database-dev": {
-    "title": "Database Development",
-    "type": "folder"
-  },
+  "cpp-dev": "C++ Development",
+  "database-dev": "Database Development",
   "about": {
     "title": "About",
     "type": "page"
