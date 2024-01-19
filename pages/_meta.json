@@ -2,7 +2,7 @@
   "index": "Introduction",
   "another": "Another Page",
   "cpp-dev": "C++ Development",
-  "environment": "Setting Up Your Environment",
+  "database-dev": "Database Development",
   "about": {
     "title": "About",
     "type": "page"
