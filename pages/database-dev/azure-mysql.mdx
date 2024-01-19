@@ -1,0 +1,45 @@
+# Azure Database for MySQL
+
+We will create an Azure Database for MySQL. This will be be used in CSCN-326.
+
+## Create a new Azure Database for MySQL
+
+Select **Free services**
+
+Scroll down and click **Create** on **Azure Database for MySQL**
+
+Click **Create** on the **Flexible Server** option
+
+1. Change the Subscription to **Azure for Students**
+2. Create or select a Resource Group
+3. Enter a server name
+- Set the server location to **East US** (Use East US 2 if East US is causing depoloyment issues)
+- Change **Authentication method** to **MySQL authentication only**
+- Enter a username and password you will remember
+4. Go through the rest of the options ensure features that cost money are disabled (Security, etc.)
+5. Go to **Review + create** and then click **Create**
+
+## Networking the Azure Database for MySQL
+
+1. Go to the Azure portal and click on your database **server** under **Resources**
+2. In the Overview tab, scroll down and click **Configure Networking**
+3. Select **Allow public access to this resource through the internet using a public IP address**
+4. Under the Firewall rules, click **Allow public access from any Azure service within Azure to this server**
+5. Click **+ Add 0.0.0.0 - 255.255.255.255**
+6. Click **Save**
+
+## Connecting to the Azure Database for MySQL
+
+Go to the resource **Overview** tab and copy the **Server name**. This is the server name you will use to connect to the database.
+
+If you are using Azure Data Studio, you need to downlaod the MySQL extension. To do this, click on the **Extensions** tab on the left side of Azure Data Studio. Search for **MySQL** and install the extension.
+
+1. Open Azure Data Studio and click **New Connection**
+2. Change the **Connection type** to **MySQL**
+3. Enter the **Server name** you copied earlier into **Server name**
+3. Enter the **Username** and **Password** you created earlier, and click **Save Password**
+4. Click **Connect**
+
+You should now be connected to your Azure SQL Database.
+
+From here, you can create a new database, create tables, and run queries. We recommend looking at the [Azure Data Studio Documentation](https://learn.microsoft.com/en-us/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15) to learn more about Azure Data Studio.
