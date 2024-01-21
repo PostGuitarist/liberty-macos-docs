@@ -1,8 +1,17 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
   logo: <span>LU CS Docs</span>,
+  useNextSeoProps() {
+    const { route } = useRouter()
+    if (route !== '/') {
+      return {
+        titleTemplate: '%s – LU CS Docs'
+      }
+    }
+  },
   project: {
     link: 'https://github.com/PostGuitarist/liberty-macos-docs',
   },
