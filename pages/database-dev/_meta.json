@@ -1,5 +1,6 @@
 {
     "azure-setup": "Azure Setup",
     "azure-sql": "Azure SQL Database",
-    "azure-mysql": "Azure MySQL Database"
+    "azure-mysql": "Azure MySQL Database",
+    "azure-mysql-cli": "MySQL CLI Development"
 }
