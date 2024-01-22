@@ -2,6 +2,43 @@
 title: Converting to VS
 ---
 
-# Converting to Visual Studio
+# vscode-to-vs
 
-Satori (悟り) is a Japanese Buddhist term for awakening, "comprehension; understanding".
+I (Cameron Kauffman) created this tool because I wanted to both code and submit my CSCN 111, 112, and 215 labs without having to leave my Mac. The professors at Liberty use Visual Studio because it's much easier to have a standard IDE so they can grade faster and help students more easily.
+
+However, I don't like Windows and I dislike Visual Studio even more. So here we are.
+
+## Installing the tool
+
+If you followed the steps in [setup](./envr-setup.mdx/#install-brew) for installing brew, you can run the following command to install the tool:
+
+```bash
+brew install wzid/tap/vscode-to-vs
+```
+
+Now your tool is installed.
+
+## Using the tool
+
+So the command works like this:
+
+```bash
+ vscode-to-vs [ProjectName] [FilePath]
+```
+
+This tool takes in two arguments, the name of your project and the path to the folder that contains all your source files.
+
+The tool will then create a new folder in your current directory with the name of your project. It will then copy all the `.cpp` and `.h` files from the source folder into the new folder. It will then create all the random stuff that Visual Studio needs to compile your code.
+
+If you wanted to submit your Lab 2 for CSCN 111, you would run the following commands:
+
+```bash
+cd ~/Documents/Liberty/CSCN-111
+
+vscode-to-vs Lab2 ./Lab2
+```
+
+That's it! You should be able to open this folder and zip it up with the required word document and submit it to Canvas.
+
+If you need help or have any questions, feel free to reach out to us on [Discord](https://discord.gg/egVb7yPpVf) or via [email](mailto:cameronkauffman@outlook.com).
+
