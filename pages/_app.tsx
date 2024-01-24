@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import { Analytics } from '@vercel/analytics/react';
-import themeConfig from '../theme.config.js';
+import themeConfig from '../theme.config';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
