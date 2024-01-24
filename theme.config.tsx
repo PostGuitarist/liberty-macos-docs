@@ -8,6 +8,18 @@ const config: DocsThemeConfig = {
       titleTemplate: '%s – LU CS Docs'
     }
   },
+  head: (
+    <>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LG03E2EJLB"></script>
+      <script>{
+        `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LG03E2EJLB');`
+      }</script>
+    </>
+  ),
   project: {
     link: 'https://github.com/PostGuitarist/liberty-macos-docs',
   },
