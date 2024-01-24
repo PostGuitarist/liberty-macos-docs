@@ -6,7 +6,26 @@ import { Callout } from 'nextra-theme-docs'
 # VSCode to Visual Studio Extension
 
 This extension was created with the same idea as Cameron Kauffman's command line program to convert C++ projects into Visual Studio projects. 
+
+I (Zaden Connell) wanted to create a Visual Studio extension that would allow you to convert a VSCode workspace into a Visual Studio solution. This extension is the result of that.
  
 <Callout type="warning" emoji="⚠️">
-  This extension is still under development.
+  This extension is in beta and may not work as expected. Please report any issues on the <a href="https://github.com/PostGuitarist/vscode-to-vs-extension/issues">GitHub repository</a>.
 </Callout>
+
+## Installation
+
+You can install this extension from the [Visual Studio Marketplace](#). (Coming soon)
+
+You can also install this extension from the [GitHub releases](https://github.com/PostGuitarist/vscode-to-vs-extension/releases).
+
+To install from the .vsix file, open Visual Studio and go to `Extensions > Views and More Actions > Install from VSIX` and select the .vsix file.
+
+You can also install by downloading the .vsix file and running 
+```bash
+code --install-extension vscode-to-vs-extension-1.0.0.vsix
+```
+
+## Usage
+
+To use this extension, open a VSCode workspace and open the command palette. Then run `Generate C++ Solution Files`. This will create a Visual Studio solution file in the root of the workspace.
