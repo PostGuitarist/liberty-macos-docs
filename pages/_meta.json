@@ -1,5 +1,6 @@
 {
   "index": "Introduction",
+  "virtual-machine": "Virtual Machines",
   "cpp-dev": "C++ Development",
   "database-dev": "Database Development",
   "about": {
