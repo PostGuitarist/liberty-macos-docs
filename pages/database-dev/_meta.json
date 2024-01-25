@@ -1,4 +1,5 @@
 {
+    "docker": "Docker Setup",
     "sql-dev": "Local SQL Development",
     "mysql-dev": "Local MySQL Development",
     "mysql-cli": "Local MySQL CLI",

@@ -4,7 +4,7 @@ title: Local SQL Database
 
 # Local SQL Database
 
-We will create a Local SQL Database. This will be the most commonly used database in CSCN-326.
+We will create a Local SQL Database. These will be the most commonly used database in CSCN-326.
 
 ## Create a new Local SQL Database
 
@@ -13,12 +13,11 @@ We will create a Local SQL Database. This will be the most commonly used databas
 
 ### Steps
 
-1. Open Docker and run through the installation process
-2. Open a terminal and run the following command to pull the latest SQL Server image from Docker Hub
+1. Open a terminal and run the following command to pull the latest SQL Server image from Docker Hub
     ```bash
     docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=VeryStr0ngP@ssw0rd" -p 1433:1433 --name sql --hostname sql --platform linux/amd64 -d mcr.microsoft.com/mssql/server:2022-latest
     ```
-3. Check Docker to make sure the container is running
+2. Check Docker to make sure the container is running
 
 ## Connecting to the Local SQL Database
 
