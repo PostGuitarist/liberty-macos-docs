@@ -1,6 +1,7 @@
 {
   "index": "Introduction",
   "virtual-machine": "Virtual Machines",
+  "textedit": "TextEdit for HTML",
   "cpp-dev": "C++ Development",
   "database-dev": "Database Development",
   "about": {

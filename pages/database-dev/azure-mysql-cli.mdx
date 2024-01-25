@@ -17,12 +17,12 @@ If you are developing MySQL scripts locally and want to deploy them to Azure, yo
 1. Open a terminal window and connect to your Azure Database for MySQL server using the following command:
 
     ```bash
-    mysql -h <your_server_name>.mysql.database.azure.com -u <your_user_name>@<your_server_name> -p
+    mysql -h [SERVER_NAME].mysql.database.azure.com -u [YOUR_USERNAME] -p
     ```
 
     You will be prompted to enter your password.
 
-    ```bash
+    ```
     Enter password:
     ```
 
@@ -35,12 +35,12 @@ If you are developing MySQL scripts locally and want to deploy them to Azure, yo
 To run MySQL scripts by CLI, you can use the following command:
 
 ```bash
-mysql -h <your_server_name>.mysql.database.azure.com -u <your_user_name>@<your_server_name> -p <your_database_name> < <your_script_name>.sql
+mysql -h [SERVER_NAME].mysql.database.azure.com -u <YOUR_USERNAME>@[SERVER_NAME] -p [DATABASE_NAME] < [SCRIPT_NAME].sql
 ```
 
 You will be prompted to enter your password.
 
-```bash
+```
 Enter password:
 ```
 
