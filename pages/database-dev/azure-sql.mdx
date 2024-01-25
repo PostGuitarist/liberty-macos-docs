@@ -33,6 +33,18 @@ Scroll down and click `Create` on `Azure SQL Database`
 5. Click `Allow Azure services and resources to access this server`
 6. Click **Save**
 
+## Billing Issues
+
+Sometimes SQL Databases will overwork and cause billing issues. To prevent this, we will set a limit on the database.
+
+1. Go to the Azure portal and click on your SQL Database under Resources. ***NOT*** the server.
+2. Change tabs to `Compute + storage`
+3. Ensure `Free database offer (Preview)` is selected
+4. Set `Behavior when free offer limit reached` to `Auto-pause the database until next month`
+5. Change `Max vCores` to `1`
+6. Ensure `Auto-pause delay` is enabled
+7. Click `Apply`
+
 ## Connecting to the Azure SQL Database
 
 Go to the resource **Overview** tab and copy the `Server name`. This is the server name you will use to connect to the database.
