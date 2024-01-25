@@ -1,10 +1,19 @@
 ---
 title: Azure SQL
 ---
+import { Callout } from 'nextra-theme-docs'
 
 # Azure SQL Database
 
 We will create an Azure SQL Database. This will be the most commonly used database in CSCN-326.
+
+<Callout type="warning" emoji="⚠️">
+  Make sure to look at the <a href="/docs/azure/azure-sql#billing-issues">Billing Issues</a> section to prevent billing issues. This is a **major** problem!!!
+</Callout>
+
+<Callout type="warning" emoji="⚠️">
+  We do not recommend making multiple databases on the same server. This will cause billing issues. If you need multiple databases, create a new server for each database.
+</Callout>
 
 ## Create a new Azure SQL Database
 
@@ -44,6 +53,18 @@ Sometimes SQL Databases will overwork and cause billing issues. To prevent this,
 5. Change `Max vCores` to `1`
 6. Ensure `Auto-pause delay` is enabled
 7. Click `Apply`
+
+If you create a new database on the server, you need to follow these other steps to ensure it is free.
+
+1. Go to the Azure portal and click on your SQL Database Server under Resources. ***NOT*** the database.
+2. In the `Overview` tab, scroll down and click the database.
+3. Change tabs to `Compute + storage`
+4. Change `Service tier` to `General Purpose`
+5. Change `Compute tier` to `Serverless`
+6. Ensure the `Computer Hardware` is `Standard-series (Gen5)`
+7. Ensure `Max vCores` is `1`
+8. Ensure `Auto-pause delay` is enabled
+9. Click `Apply`
 
 ## Connecting to the Azure SQL Database
 
