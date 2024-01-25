@@ -2,6 +2,5 @@
     "sql-dev": "Local SQL Development",
     "mysql-dev": "Local MySQL Development",
     "mysql-cli": "MySQL CLI Development",
-    "azure-setup": "Azure Setup",
-    "azure-mysql-cli": "MySQL CLI Development"
+    "db-erd": "Database ERD"
 }
