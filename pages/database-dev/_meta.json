@@ -1,4 +1,5 @@
 {
+    "sql-dev": "SQL Development",
     "azure-setup": "Azure Setup",
     "azure-mysql-cli": "MySQL CLI Development"
 }
