@@ -39,3 +39,49 @@ We will create a Local MySQL Database. This will be used in CSCN-326.
 You should now be connected to your Local MySQL Database.
 
 From here, you can create a new database, create tables, and run queries. We recommend looking at the [Azure Data Studio Documentation](https://learn.microsoft.com/en-us/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15) to learn more about Azure Data Studio.
+
+# MySQL CLI Development
+
+## Install MySQL CLI
+
+If you are using a Mac, you can install MySQL CLI by using the following command:
+
+```bash
+brew install mysql
+```
+
+## Connect to Local MySQL Database by CLI
+
+Open a terminal window and connect to your Local MySQL Database server using the following command:
+
+```bash
+mysql -h localhost -u root -p [DATABASE_NAME]
+```
+
+You will be prompted to enter your password.
+
+```
+Enter password:
+```
+
+Enter the password you used when you created the server.
+
+Now, you are connected to your Local MySQL Database.
+
+## Run MySQL Scripts by CLI
+
+To run MySQL scripts by CLI, you can use the following command:
+
+```bash
+mysql -h localhost -u root -p [DATABASE_NAME] < [SCRIPT_NAME].sql
+```
+
+You will be prompted to enter your password.
+
+```
+Enter password:
+```
+
+Enter the password you used when you created the server.
+
+Now, your script will be executed, and you will see the results in the terminal window.
