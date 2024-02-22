@@ -20,6 +20,22 @@ For some of the labs and assignments, you will need to use Microsoft Access. Thi
 2. Click on the `Access` app to open it
 3. You can now create a new database or open an existing one
 
+### Exporting via ODBC
+You will need to export the databases created in Microsoft Access to your SQL Server.
+
+First, ensure in the UTM machine settings under `Network` that the `Network Mode` is set to `Shared Network`.
+
+1. Open MS Access and open the database you want to export
+2. Click on `External Data` in the top menu
+3. Click on `More` and then `ODBC Database`
+4. Follow the on-screen instructions to export the database to your SQL Server, but select `Machine Data Source` instead of `File Data Source`
+5. Select `New` and then `User Data Source`
+6. Select `SQL Server` and click `Next`
+7. For the `Server` field, you must use the `Default Gateway` IP address the UTM machine is using. You can find this by running `ipconfig` in the command prompt in the UTM machine
+8. Enter your SQL Server credentials and click `Next`. This should be the same credentials you use to login to the SQL Server
+9. Continue through the steps, and ensure to click `Test Connection` to ensure the connection is working
+
+
 ## Sharing the Database files with MacOS
 Using UTM, you can set a shared folder between Windows and MacOS. This will allow you to easily transfer files between the two operating systems.
 
