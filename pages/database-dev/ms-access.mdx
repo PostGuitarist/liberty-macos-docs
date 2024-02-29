@@ -21,6 +21,15 @@ For some of the labs and assignments, you will need to use Microsoft Access. Thi
 2. Click on the `Access` app to open it
 3. You can now create a new database or open an existing one
 
+### Exporting via CSV Hint
+You can also export via CSV, and we have a small hint to help with that. The formula below will help you export a table to a CSV file. You can then import the CSV file into your SQL Server.
+
+```txt
+="INSERT INTO Regions VALUES("&A2&",'"&B2&"')"
+```
+
+Take this as you will...
+
 ### Exporting via ODBC
 You will need to export the databases created in Microsoft Access to your SQL Server.
 
@@ -57,7 +66,7 @@ Now, you will need to map the shared folder as a network drive in Windows. Open 
 1. Open the command prompt and run `ipconfig` to find the `Default Gateway` IP address. Save this for later
 2. Open `File Explorer` and right-click on `This PC` and select `Map network drive`
 3. Enter the following in the `Folder` field: 
-```bash 
+```txt 
 \\<Default Gateway IP Address>\Downloads
 ``` 
 (or the folder you shared)
