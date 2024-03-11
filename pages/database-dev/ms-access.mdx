@@ -43,7 +43,7 @@ First, ensure in the UTM machine settings under `Network` that the `Network Mode
 6. Select `SQL Server` and click `Next`
 7. For the `Server` field, you must use the `Default Gateway` IP address the UTM machine is using. You can find this by running `ipconfig` in the command prompt in the UTM machine
 8. Enter your SQL Server credentials and click `Next`. This should be the same credentials you use to login to the SQL Server
-9. Continue through the steps, and ensure to click `Test Connection` to ensure the connection is working
+9. Continue through the steps, and click `Test Connection` to ensure the connection is working
 
 
 ## Sharing the Database files with MacOS
@@ -58,7 +58,7 @@ Now, the process gets to be a bit tricky. You will need to share a folder betwee
 1. Open your MacOS settings and go to `Sharing`
 2. Turn on `File Sharing` and click on the `i` icon next to it
 3. Click the `+` button on the ***Shared Folders*** section and select the folder you want to share. We recommend just using the `Downloads` folder for simplicity
-4. Click the fodler in the list and ensure your account has `Read & Write` permissions, and ***Everyone*** has `No Access`
+4. Click the folder in the list and ensure your account has `Read & Write` permissions, and ***Everyone*** has `No Access`
 5. Click the `Options...` button and ensure `Share files and folders using SMB` is checked
 
 Now, you will need to map the shared folder as a network drive in Windows. Open up the Windows UTM machine and follow these steps:
@@ -73,5 +73,5 @@ Now, you will need to map the shared folder as a network drive in Windows. Open 
 
 4. Ensure `Reconnect at sign-in` is checked and click `Finish`
 5. Click `Finish` and enter your MacOS credentials when prompted. This is the same credentials you use to login to MacOS, so it should be your MacOS username and password
-6. Ensure your select `Remember my credentials` at the `Enter network credentials` prompt
+6. Ensure you select `Remember my credentials` at the `Enter network credentials` prompt
 7. You should now see the shared folder as a network drive in Windows
