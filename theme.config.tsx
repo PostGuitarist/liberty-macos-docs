@@ -27,8 +27,24 @@ const config: DocsThemeConfig = {
     link: 'https://discord.gg/egVb7yPpVf',
   },
   docsRepositoryBase: 'https://github.com/PostGuitarist/liberty-macos-docs',
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+    autoCollapse: true,
+  },
+  editLink: {
+    component: null
+  },
   footer: {
-    text: 'Made with ❤️ by Cameron and Zaden', 
+    text: (
+      <span>
+        Made with ❤️ by Cameron and Zaden |
+        MIT {new Date().getFullYear()} ©{' '}
+        <a href="https://github.com/PostGuitarist/liberty-macos-docs" target="_blank">
+          LU CS Docs
+        </a>
+        .
+      </span>
+    ) 
   },
 }
 
