@@ -5,11 +5,11 @@ import { Callout, Steps } from 'nextra-theme-docs'
 
 # Virtual Machines
 
-An important part of using a Mac in many soem of the classes is the ability to run Windows and Linux when needed. This will be helpful in classes like CSCN-345, CSCN-326, and others (to come later). This guide will walk you through the process of installing Windows and Linux on your Mac.
+An important part of using a M1(+) Mac in many of the classes is the ability to run Windows and Linux when needed. This will be helpful in classes like CSCN-345, CSCN-326, and others (to come later). This guide will walk you through the process of installing Windows and Linux on your Mac.
 
 ## UTM
 
-UTM is a virtual machine manager for MacOS. It allows you to run virtual machines on your Mac. It is free and open source at [https://getutm.app/](https://docs.getutm.app/installation/macos/). It is available on the Mac App Store, but the App Store version cost money. We recommend using the free version from the Github.
+UTM is a virtual machine manager for MacOS. It allows you to run virtual machines on your Mac. It is free and open source at [https://getutm.app/](https://docs.getutm.app/installation/macos/). It is available on the Mac App Store, but the App Store version costs money. We recommend using the free version from GitHub.
 
 ### Windows Installation
 
@@ -32,6 +32,7 @@ Once you have the ISO, you can start by:
 ### Linux Installation
 
 Linux is a little easier to install. You can download the ISO from the Linux distribution's website. We recommend using Ubuntu, as it is the most beginner-friendly. You can download the ISO from [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop).
+Linux is a little easier to install. You can download the ISO from the Linux distribution's website. We recommend using Ubuntu, as it is the most beginner-friendly. You can download the ISO from [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop).
 
 We also recommend you get the ARM version of Ubuntu, as it will run the fastest on your Mac.
 
@@ -45,3 +46,23 @@ Once you have the ISO, you can start by:
 - Select the amount of ***Storage*** you want to allocate to the VM.
 - Click `Next` until you get to the final screen, then click `Save`.
 - Follow the instructions on the screen to install Ubuntu.
+
+### Emulating a x86/x64 CPU
+<Callout type="warning" emoji="⚠️">
+  Emulating an x86/x64 CPU is ***NOT*** recommended. It is very slow and can have issues.
+</Callout>
+
+UTM allows you to emulate an x86/x64 CPU on your Mac. This will allow you to run Windows and Linux distributions that are not ARM-compatible. This is a little more complicated, but we will walk you through it.
+
+#### Windows x86/x64
+
+To emulate an x86/x64 CPU, you will need to download the Windows 11 Disk Image image from [Microsoft](https://www.microsoft.com/software-download/windows11). Scroll down to the bottom of the page and click `Select download`. Select `Windows 11 (multi-edition ISO for x64 devices)` and click `Download Now`.
+
+Once you have the ISO, you can start by:
+- Open UTM and click the `+` button to open the VM creation wizard
+- Select `Emulate`
+- Select `Windows`
+- Click `Browse` and select the Windows 11 x64 ISO you downloaded earlier.
+- Select the amount of ***RAM*** and ***CPU cores*** you want to allocate to the VM. We recommend at least 8GB of RAM and 6 CPU cores.
+- Select the amount of ***Storage*** you want to allocate to the VM. We recommend at least 32GB.
+- Click `Next` until you get to the final screen, then click `Save`.
