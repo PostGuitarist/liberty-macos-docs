@@ -49,7 +49,7 @@ export async function generateMetadata({ params: { slug = [] } }: PageProps) {
   if (!res) return null;
   const { frontmatter } = res;
   return {
-    title: frontmatter.title,
+    title: `${frontmatter.title} | LU CS Docs`,
     description: frontmatter.description,
   };
 }
