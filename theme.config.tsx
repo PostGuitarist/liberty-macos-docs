@@ -11,6 +11,7 @@ const config: DocsThemeConfig = {
   head: (
     <>
       <meta name="sa-verify" content="cscameronrsnij2yugocb0d" />
+      <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script> 
     </>
   ),
   project: {
