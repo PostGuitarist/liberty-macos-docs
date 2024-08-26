@@ -1,8 +1,17 @@
 // for page navigation & to sort on leftbar
-export const ROUTES = [
+
+export type EachRoute = {
+  title: string;
+  href: string;
+  noLink?: true;
+  items?: EachRoute[];
+};
+
+export const ROUTES: EachRoute[] = [
   {
     title: "Getting Started",
-    href: "getting-started",
+    href: "/getting-started",
+    noLink: true,
     items: [
       { title: "Introduction", href: "/introduction" },
       { title: "Changelog", href: "/changelog" },
@@ -11,12 +20,14 @@ export const ROUTES = [
   },
   {
     title: "Virtual Machines",
-    href: "virtual-machines",
+    href: "/virtual-machines",
+    noLink: true,
     items: [{ title: "Introduction", href: "/introduction" }],
   },
   {
     title: "C++ Development",
-    href: "cpp-development",
+    href: "/cpp-development",
+    noLink: true,
     items: [
       { title: "Introduction", href: "/introduction" },
       { title: "Setup Development Environment", href: "/setup-environment" },
@@ -25,7 +36,8 @@ export const ROUTES = [
   },
   {
     title: "Database Development",
-    href: "db-development",
+    href: "/db-development",
+    noLink: true,
     items: [
       { title: "Introduction", href: "/introduction" },
       { title: "DB ERD", href: "/db-erd" },
@@ -37,7 +49,8 @@ export const ROUTES = [
   },
   {
     title: "The O'Malley Trilogy",
-    href: "omalley-trilogy",
+    href: "/omalley-trilogy",
+    noLink: true,
     items: [
       { title: "Introduction", href: "/introduction" },
       { title: "Logisim", href: "/logisim" },
@@ -46,16 +59,24 @@ export const ROUTES = [
   },
   {
     title: "Other / Uncategorised",
-    href: "other",
+    href: "/other",
+    noLink: true,
     items: [{ title: "Introduction", href: "/introduction" }],
   },
 ];
 
-export const page_routes = ROUTES.map(({ href, items }) => {
-  return items.map((link) => {
-    return {
-      title: link.title,
-      href: href + link.href,
-    };
+type Page = { title: string; href: string };
+
+function getRecurrsiveAllLinks(node: EachRoute) {
+  const ans: Page[] = [];
+  if (!node.noLink) {
+    ans.push({ title: node.title, href: node.href });
+  }
+  node.items?.forEach((subNode) => {
+    const temp = { ...subNode, href: `${node.href}${subNode.href}` };
+    ans.push(...getRecurrsiveAllLinks(temp));
   });
-}).flat();
+  return ans;
+}
+
+export const page_routes = ROUTES.map((it) => getRecurrsiveAllLinks(it)).flat();
