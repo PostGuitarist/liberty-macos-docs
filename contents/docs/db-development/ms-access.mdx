@@ -1,0 +1,77 @@
+---
+title: "Microsoft Access"
+description: "This section provides an overview of using Microsoft Access."
+---
+
+For some of the labs and assignments, you may need to use Microsoft Access. This page will guide you through the process of installing and using Microsoft Access.
+
+### Pre-requisites
+- [UTM](https://mac.getutm.app/)
+    - Windows 11 ARM Installed
+
+### Installation
+1. Inside the UTM machine, open the browser
+2. Go to [Liberty's MS-365 Center](https://www.liberty.edu/information-services/products/microsoft-365/)
+3. Click on the `Desktop` button under **Download Microsoft 365**
+4. Now in the portal, click on `Install Office`
+5. Install the Office suite by following the on-screen instructions
+
+### Usage
+1. Open the `Start` menu and search for `Access`
+2. Click on the `Access` app to open it
+3. You can now create a new database or open an existing one
+
+### Exporting via CSV Hint
+You can also export via CSV, and we have a small hint to help with that. The formula below will help you export a table to a CSV file. You can then import the CSV file into your SQL Server.
+
+```txt
+="INSERT INTO Regions VALUES("&A2&",'"&B2&"')"
+```
+
+Take this as you will...
+
+### Exporting via ODBC
+You will need to export the databases created in Microsoft Access to your SQL Server.
+
+First, ensure in the UTM machine settings under `Network` that the `Network Mode` is set to `Shared Network`.
+
+1. Open MS Access and open the database you want to export
+2. Click on `External Data` in the top menu
+3. Click on `More` and then `ODBC Database`
+4. Follow the on-screen instructions to export the database to your SQL Server, but select `Machine Data Source` instead of `File Data Source`
+5. Select `New` and then `User Data Source`
+6. Select `SQL Server` and click `Next`
+7. For the `Server` field, you must use the `Default Gateway` IP address the UTM machine is using. You can find this by running `ipconfig` in the command prompt in the UTM machine
+8. Enter your SQL Server credentials and click `Next`. This should be the same credentials you use to login to the SQL Server
+9. Continue through the steps, and click `Test Connection` to ensure the connection is working
+
+
+## Sharing the Database files with MacOS
+Using UTM, you can set a shared folder between Windows and MacOS. This will allow you to easily transfer files between the two operating systems.
+
+1. Open UTM, select the Windows 11 virtual machine and click the disk icon in the top right
+2. Select `Install Windows Guest Tools`
+3. Follow the on-screen instructions to install the tools
+
+Now, the process gets to be a bit tricky. You will need to share a folder between Windows and MacOS. This will allow you to easily transfer files between the two operating systems. However, we are going to map it as a network drive in Windows.
+
+1. Open your MacOS settings and go to `Sharing`
+2. Turn on `File Sharing` and click on the `i` icon next to it
+3. Click the `+` button on the ***Shared Folders*** section and select the folder you want to share. We recommend just using the `Downloads` folder for simplicity
+4. Click the folder in the list and ensure your account has `Read & Write` permissions, and ***Everyone*** has `No Access`
+5. Click the `Options...` button and ensure `Share files and folders using SMB` is checked
+
+Now, you will need to map the shared folder as a network drive in Windows. Open up the Windows UTM machine and follow these steps:
+
+1. Open the command prompt and run `ipconfig` to find the `Default Gateway` IP address. Save this for later
+2. Open `File Explorer` and right-click on `This PC` and select `Map network drive`
+3. Enter the following in the `Folder` field: 
+```txt 
+\\<Default Gateway IP Address>\Downloads
+``` 
+(or the folder you shared)
+
+4. Ensure `Reconnect at sign-in` is checked and click `Finish`
+5. Click `Finish` and enter your MacOS credentials when prompted. This is the same credentials you use to login to MacOS, so it should be your MacOS username and password
+6. Ensure you select `Remember my credentials` at the `Enter network credentials` prompt
+7. You should now see the shared folder as a network drive in Windows

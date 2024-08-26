@@ -1,0 +1,38 @@
+---
+title: T-SQL
+---
+
+We will create a Local T-SQL Database. These will be the most commonly used database in CSCN-326.
+
+## Create a new Local T-SQL Database
+
+### Pre-requisites
+- [Docker](https://www.docker.com/products/docker-desktop)
+
+### Steps
+
+1. Open a terminal and run the following command to pull the latest SQL Server image from Docker Hub
+    ```bash
+    docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=VeryStr0ngP@ssw0rd" -p 1433:1433 --name sql --hostname sql --platform linux/amd64 -d mcr.microsoft.com/mssql/server:2022-latest
+    ```
+2. Check Docker to make sure the container is running
+
+## Connecting to the Local SQL Database
+
+1. Open Azure Data Studio and click `New Connection`
+2. Enter `localhost` into `Server`
+3. Enter `sa` into `Username`
+4. Enter `VeryStr0ngP@ssw0rd` into `Password`
+5. Click `Remember Password`
+6. Click `Advanced`
+7. Scroll down to `GENERAL` and put `1433` into `Port`
+8. Click `Connect`
+
+```bash
+    Username: sa
+    Password: VeryStr0ngP@ssw0rd
+```
+
+You should now be connected to your Local SQL Database.
+
+From here, you can create a new database, create tables, and run queries. We recommend looking at the [Azure Data Studio Documentation](https://learn.microsoft.com/en-us/azure-data-studio/what-is-azure-data-studio?view=sql-server-ver15) to learn more about Azure Data Studio.
