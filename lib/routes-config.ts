@@ -12,9 +12,7 @@ export const ROUTES = [
   {
     title: "Virtual Machines",
     href: "virtual-machines",
-    items: [
-      { title: "Introduction", href: "/introduction" },
-    ],
+    items: [{ title: "Introduction", href: "/introduction" }],
   },
   {
     title: "C++ Development",
@@ -30,6 +28,11 @@ export const ROUTES = [
     href: "db-development",
     items: [
       { title: "Introduction", href: "/introduction" },
+      { title: "DB ERD", href: "/db-erd" },
+      { title: "Docker", href: "/docker" },
+      { title: "SQL Server", href: "/tsql" },
+      { title: "MySQL", href: "/mysql" },
+      { title: "MS Access", href: "/ms-access" },
     ],
   },
   {
@@ -37,14 +40,14 @@ export const ROUTES = [
     href: "omalley-trilogy",
     items: [
       { title: "Introduction", href: "/introduction" },
+      { title: "Logisim", href: "/logisim" },
+      { title: "x86-64", href: "/x86_64-vm" },
     ],
   },
   {
     title: "Other / Uncategorised",
     href: "other",
-    items: [
-      { title: "Introduction", href: "/introduction" },
-    ],
+    items: [{ title: "Introduction", href: "/introduction" }],
   },
 ];
 
