@@ -1,0 +1,51 @@
+---
+title: "x86_64 VM"
+description: "This section provides an overview of setting up an x86_64 VM."
+---
+
+You must create an x86_64 VM that will be used in all of the O'Malley classes. This is a one-time setup that will be used throughout the trilogy.
+
+<Note title="Important" type="danger">
+    O'Malley has recently updated the OS version you must use. Until this note is removed, this documentation is not guaranteed to work.
+</Note>
+
+<br />
+
+<Note title="Important" type="warning">
+    x86-64 VMs with a GUI are required for Computer Architecture. UTM/QEMU emulation is still very slow, and may not work at all. Crashes are common. For now, we recommend using a laptop with a x86-64 architecture.
+</Note>
+
+## Pre-requisites
+
+- [UTM](https://mac.getutm.app/)
+
+## x86_64 Setup
+
+1. Open UTM and click the `+` button to create a new VM
+2. Select `Emulate` and then `Linux`
+3. Select the x86_64 Ubuntu ISO. You must use the version O'Malley has given you
+4. Change `System` to `Standard PC (Q35 + ICH9, 2009) (alias of pc-q35-7.2) (q35)`
+5. Set the `RAM` to **AT LEAST** 1/4 of your total RAM. We recommend at least `8GB` if you have 32GB
+6. Set the `CPU Cores` to **AT LEAST** 3/4 of your total cores. We recommend at least `6` if you have an 8-core CPU
+7. Set the `Storage`. We recommend at least `32GB`
+8. Set a `Shared Directory Path`. We recommend just using your `Downloads` folder
+
+## Post-Setup
+
+Now, there are some other settings you must change to get the best performance.
+
+1. Click on the `Settings` button for the VM
+2. Click on `System` and enable `Force Multicore`
+3. Click on `Display` and change the `Emulated Display Card` to `virtio-gpu-gl-pci (GPU Supported)`
+4. Click `Save`
+
+## Post-Ubuntu Install
+
+Finally, there are some drivers and other utilities you must install.
+
+1. Open the terminal and run the following commands:
+
+```bash
+sudo apt install spice-vdagent
+sudo apt install qemu-guest-agent
+```

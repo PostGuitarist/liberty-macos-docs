@@ -1,7 +1,0 @@
-{
-    "docker": "Docker Setup",
-    "sql-dev": "Local SQL Development",
-    "mysql-dev": "Local MySQL Development",
-    "db-erd": "Database ERD",
-    "ms-access": "Microsoft Access"
-}
