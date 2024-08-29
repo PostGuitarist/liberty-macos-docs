@@ -10,10 +10,10 @@ import {
   DialogClose,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { page_routes } from "@/lib/routes-config";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useEffect, useMemo, useState } from "react";
 import Anchor from "./anchor";
+import { advanceSearch, cn } from "@/lib/utils";
 
 export default function Search() {
   const [searchedInput, setSearchedInput] = useState("");
@@ -34,10 +34,7 @@ export default function Search() {
   }, []);
 
   const filteredResults = useMemo(
-    () =>
-      page_routes.filter((item) =>
-        item.title.toLowerCase().includes(searchedInput.toLowerCase())
-      ),
+    () => advanceSearch(searchedInput.trim()),
     [searchedInput]
   );
 
@@ -82,19 +79,34 @@ export default function Search() {
             </p>
           )}
           <ScrollArea className="max-h-[350px]">
-            <div className="flex flex-col items-start overflow-y-auto sm:px-3 px-1 pb-4 gap-0.5">
-              {filteredResults.map((item) => (
-                <DialogClose key={item.href} asChild>
-                  <Anchor
-                    className="dark:hover:bg-neutral-900 hover:bg-neutral-100 w-full p-2.5 px-3 rounded-sm text-[15px] flex items-center gap-2.5"
-                    href={`/docs${item.href}`}
-                    activeClassName="dark:bg-neutral-900 bg-neutral-100"
-                  >
-                    <FileTextIcon className="h-[1.1rem] w-[1.1rem]" />{" "}
-                    {item.title}
-                  </Anchor>
-                </DialogClose>
-              ))}
+            <div className="flex flex-col items-start overflow-y-auto sm:px-3 px-1 pb-4">
+              {filteredResults.map((item) => {
+                const level = (item.href.split("/").slice(1).length -
+                  1) as keyof typeof paddingMap;
+                const paddingClass = paddingMap[level];
+
+                return (
+                  <DialogClose key={item.href} asChild>
+                    <Anchor
+                      className={cn(
+                        "dark:hover:bg-neutral-900 hover:bg-neutral-100 w-full px-3 rounded-sm text-[15px] flex items-center gap-2.5",
+                        paddingClass
+                      )}
+                      href={`/docs${item.href}`}
+                    >
+                      <div
+                        className={cn(
+                          "flex items-center w-fit h-full py-3 gap-1.5",
+                          level > 1 && "border-l pl-4"
+                        )}
+                      >
+                        <FileTextIcon className="h-[1.1rem] w-[1.1rem]" />{" "}
+                        {item.title}
+                      </div>
+                    </Anchor>
+                  </DialogClose>
+                );
+              })}
             </div>
           </ScrollArea>
         </DialogContent>
@@ -102,3 +114,10 @@ export default function Search() {
     </div>
   );
 }
+
+const paddingMap = {
+  1: "pl-2",
+  2: "pl-4",
+  3: "pl-10",
+  // Add more levels if needed
+} as const;
