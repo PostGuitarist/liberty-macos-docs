@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, HexagonIcon } from "lucide-react";
+import { GithubIcon, HexagonIcon, MessageCircleQuestion } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Search from "./search";
@@ -12,6 +12,18 @@ export const NAVLINKS = [
   {
     title: "Documentation",
     href: `/docs${page_routes[0].href}`,
+  },
+  {
+    title: "Submit an Issue",
+    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new",
+  },
+  {
+    title: "Contribute",
+    href: "https://github.com/PostGuitarist/liberty-macos-docs/",
+  },
+  {
+    title: "LU CPC Discord",
+    href: "https://discord.gg/dneShg4YYv",
   },
 ];
 
@@ -40,6 +52,12 @@ export function Navbar() {
                 className={buttonVariants({ variant: "ghost", size: "icon" })}
               >
                 <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
+              </Link>
+              <Link
+                href="https://discord.com/users/335852771318169612"
+                className={buttonVariants({ variant: "ghost", size: "icon" })}
+              >
+                <MessageCircleQuestion className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <ModeToggle />
             </div>
