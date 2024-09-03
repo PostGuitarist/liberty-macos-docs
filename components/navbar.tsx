@@ -15,11 +15,11 @@ export const NAVLINKS = [
   },
   {
     title: "Submit an Issue",
-    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new",
+    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=%5BBUG%5D",
   },
   {
     title: "Contribute",
-    href: "https://github.com/PostGuitarist/liberty-macos-docs/",
+    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new?assignees=&labels=documentation%2C+enhancement&projects=&template=documentation-request.md&title=%5BDOCS%5D",
   },
   {
     title: "LU CPC Discord",
