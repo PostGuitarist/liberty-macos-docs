@@ -5,14 +5,10 @@ description: "This section provides an overview of setting up an x86_64 VM."
 
 You must create an x86_64 VM that will be used in all of the O'Malley classes. This is a one-time setup that will be used throughout the trilogy.
 
-<Note title="Important" type="danger">
-    O'Malley has recently updated the OS version you must use. Until this note is removed, this documentation is not guaranteed to work.
-</Note>
-
 <br />
 
 <Note title="Important" type="warning">
-    x86-64 VMs with a GUI are required for Computer Architecture. UTM/QEMU emulation is still very slow, and may not work at all. Crashes are common. For now, we recommend using a laptop with a x86-64 architecture.
+    x86-64 VMs with a GUI are required. UTM/QEMU emulation is slow, and you may experience crashes with hevay resources liek VSCode.
 </Note>
 
 ## Pre-requisites
@@ -44,6 +40,7 @@ Finally, there are some drivers and other utilities you must install.
 1. Open the terminal and run the following commands:
 
 ```bash
-sudo apt install spice-vdagent
-sudo apt install qemu-guest-agent
+sudo apt install build-essential
+sudo apt install nasm
+sudo apt install qemu-system-i386
 ```
