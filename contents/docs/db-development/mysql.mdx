@@ -5,7 +5,7 @@ description: This section provides an overview of using MySQL.
 
 We will create a Local MySQL Database. This will be used in CSCN-326.
 
-## Create a new Local MySQL Database
+## Create a Local MySQL Database
 
 ### Pre-requisites
 - [Docker](https://www.docker.com/products/docker-desktop)
@@ -88,3 +88,24 @@ Enter password:
 Enter the password you used when you created the server.
 
 Now, your script will be executed, and you will see the results in the terminal window.
+
+<br />
+
+## MySQL & PHP Development
+
+### Pre-requisites
+
+- [5 Server VSCode Extension](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- Docker MySQL Setup
+
+### Connection String for MySQL
+
+```php
+$connection = mysqli_connect('localhost:3306', 'root', 'VeryStr0ngP@ssw0rd', 'Labs')
+```
+
+### Run PHP Scripts
+
+1. Open the PHP file you want to run in VSCode
+2. Click the `Go Live` button in the bottom right corner of the window
