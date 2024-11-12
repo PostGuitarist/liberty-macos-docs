@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
-
+import { ThemeProvider } from "@/components/contexts/theme-provider";
+import { Navbar } from "@/components/navbar";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-
-import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "LU CS Docs",
   metadataBase: new URL("https://cs.cameron.rs/"),
   description:
-    "Guide to using MacOS devices in Liberty University's computer science classes ",
+    "Guide to using MacOS devices in Liberty University's computer science classes.",
 };
 
 export default function RootLayout({
@@ -24,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
+        className={`${GeistSans.variable} ${GeistMono.variable} font-regular antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider
@@ -34,12 +31,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <main className="sm:container mx-auto w-[85vw] h-auto">
+          <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
             {children}
           </main>
           <Footer />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );

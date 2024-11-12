@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, HexagonIcon, MessageCircleQuestion } from "lucide-react";
+import { GithubIcon, TwitterIcon, CommandIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Search from "./search";
@@ -19,7 +19,7 @@ export const NAVLINKS = [
   },
   {
     title: "Contribute",
-    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new?assignees=&labels=documentation%2C+enhancement&projects=&template=documentation-request.md&title=%5BDOCS%5D",
+    href: "https://github.com/PostGuitarist/liberty-macos-docs/issues/new?assignees=&labels=documentation%2C+enhancement&projects=&template=documentation-request.md&title=%5BDOCS%5D#",
   },
   {
     title: "LU CPC Discord",
@@ -29,15 +29,15 @@ export const NAVLINKS = [
 
 export function Navbar() {
   return (
-    <nav className="w-full border-b h-16 sticky top-0 z-50 lg:px-4 px-2 backdrop-filter backdrop-blur-xl bg-opacity-5">
-      <div className="sm:p-3 p-2 max-w-[1530px] mx-auto h-full flex items-center justify-between gap-2">
+    <nav className="w-full border-b h-16 sticky top-0 z-50 bg-background">
+      <div className="sm:container mx-auto w-[95vw] h-full flex items-center justify-between md:gap-2">
         <div className="flex items-center gap-5">
           <SheetLeftbar />
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <div className="sm:flex hidden">
               <Logo />
             </div>
-            <div className="lg:flex hidden items-center gap-5 text-sm font-medium text-muted-foreground">
+            <div className="lg:flex hidden items-center gap-4 text-sm font-medium text-muted-foreground">
               <NavMenu />
             </div>
           </div>
@@ -46,7 +46,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <Search />
-            <div className="flex">
+            <div className="flex ml-2.5 sm:ml-0">
               <Link
                 href="https://github.com/PostGuitarist/liberty-macos-docs"
                 className={buttonVariants({ variant: "ghost", size: "icon" })}
@@ -54,10 +54,13 @@ export function Navbar() {
                 <GithubIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <Link
-                href="https://discord.com/users/335852771318169612"
-                className={buttonVariants({ variant: "ghost", size: "icon" })}
+                href="#"
+                className={buttonVariants({
+                  variant: "ghost",
+                  size: "icon",
+                })}
               >
-                <MessageCircleQuestion className="h-[1.1rem] w-[1.1rem]" />
+                <TwitterIcon className="h-[1.1rem] w-[1.1rem]" />
               </Link>
               <ModeToggle />
             </div>
@@ -71,8 +74,8 @@ export function Navbar() {
 export function Logo() {
   return (
     <Link href="/" className="flex items-center gap-2.5">
-      <HexagonIcon className="w-7 h-7 text-muted-foreground fill-current" />
-      <h2 className="text-md font-bold">LU CS Docs</h2>
+      <CommandIcon className="w-6 h-6 text-muted-foreground" strokeWidth={2} />
+      <h2 className="text-md font-bold font-code">LU CS Docs</h2>
     </Link>
   );
 }
@@ -84,8 +87,9 @@ export function NavMenu({ isSheet = false }) {
         const Comp = (
           <Anchor
             key={item.title + item.href}
+            activeClassName="!text-primary md:font-semibold font-medium"
             absolute
-            className="hover:text-black dark:hover:text-white transition-all ease-in-out duration-200"
+            className="flex items-center gap-1 dark:text-stone-300/85 text-stone-800"
             href={item.href}
           >
             {item.title}

@@ -1,6 +1,3 @@
-import { EachRoute, ROUTES } from "@/lib/routes-config";
-import Anchor from "./anchor";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import {
   Sheet,
   SheetClose,
@@ -13,13 +10,14 @@ import { Button } from "./ui/button";
 import { AlignLeftIcon } from "lucide-react";
 import { FooterButtons } from "./footer";
 import { DialogTitle } from "./ui/dialog";
-import SubLink from "./sublink";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import DocsMenu from "./docs-menu";
 
 export function Leftbar() {
   return (
-    <aside className="md:flex hidden flex-[1] min-w-[230px] sticky top-16 flex-col h-[92.75vh] overflow-y-auto">
+    <aside className="md:flex hidden flex-[1.5] min-w-[238px] sticky top-16 flex-col h-[93.75vh] overflow-y-auto">
       <ScrollArea className="py-4">
-        <Menu />
+        <DocsMenu />
       </ScrollArea>
     </aside>
   );
@@ -29,7 +27,7 @@ export function SheetLeftbar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="lg:hidden flex">
+        <Button variant="ghost" size="icon" className="md:hidden flex">
           <AlignLeftIcon />
         </Button>
       </SheetTrigger>
@@ -40,34 +38,18 @@ export function SheetLeftbar() {
             <Logo />
           </SheetClose>
         </SheetHeader>
-        <ScrollArea className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2 mt-3 mx-2 px-5">
+        <div className="flex flex-col gap-4 overflow-y-auto">
+          <div className="flex flex-col gap-2.5 mt-3 mx-2 px-5">
             <NavMenu isSheet />
           </div>
           <div className="mx-2 px-5">
-            <Menu isSheet />
+            <DocsMenu isSheet />
           </div>
-          <div className="p-6 pb-4 flex gap-2">
+          <div className="p-6 pb-4 flex gap-2.5">
             <FooterButtons />
           </div>
-        </ScrollArea>
+        </div>
       </SheetContent>
     </Sheet>
-  );
-}
-
-function Menu({ isSheet = false }) {
-  return (
-    <div className="flex flex-col gap-3.5 mt-5">
-      {ROUTES.map((item, index) => {
-        const modifiedItems = {
-          ...item,
-          href: `/docs${item.href}`,
-          level: 0,
-          isSheet,
-        };
-        return <SubLink key={item.title + index} {...modifiedItems} />;
-      })}
-    </div>
   );
 }

@@ -8,17 +8,16 @@ import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import { page_routes } from "./routes-config";
 import { visit } from "unist-util-visit";
+import matter from "gray-matter";
 
 // custom components imports
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Pre from "@/components/pre";
-import Note from "@/components/note";
-import { Stepper, StepperItem } from "@/components/ui/stepper";
-
-type MdxFrontmatter = {
-  title: string;
-  description: string;
-};
+import Pre from "@/components/markdown/pre";
+import Note from "@/components/markdown/note";
+import { Stepper, StepperItem } from "@/components/markdown/stepper";
+import Image from "@/components/markdown/image";
+import Link from "@/components/markdown/link";
+import Outlet from "@/components/markdown/outlet";
 
 // add custom components
 const components = {
@@ -30,37 +29,52 @@ const components = {
   Note,
   Stepper,
   StepperItem,
+  img: Image,
+  a: Link,
+  Outlet,
 };
 
-export async function getMarkdownForSlug(slug: string) {
-  try {
-    const contentPath = getContentPath(slug);
-    const rawMdx = await fs.readFile(contentPath, "utf-8");
-    return await compileMDX<MdxFrontmatter>({
-      source: rawMdx,
-      options: {
-        parseFrontmatter: true,
-        mdxOptions: {
-          rehypePlugins: [
-            preProcess,
-            rehypeCodeTitles,
-            rehypePrism,
-            rehypeSlug,
-            rehypeAutolinkHeadings,
-            postProcess,
-          ],
-          remarkPlugins: [remarkGfm],
-        },
+// can be used for other pages like blogs, Guides etc
+async function parseMdx<Frontmatter>(rawMdx: string) {
+  return await compileMDX<Frontmatter>({
+    source: rawMdx,
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: {
+        rehypePlugins: [
+          preProcess,
+          rehypeCodeTitles,
+          rehypePrism,
+          rehypeSlug,
+          rehypeAutolinkHeadings,
+          postProcess,
+        ],
+        remarkPlugins: [remarkGfm],
       },
-      components,
-    });
+    },
+    components,
+  });
+}
+
+// logic for docs
+
+type BaseMdxFrontmatter = {
+  title: string;
+  description: string;
+};
+
+export async function getDocsForSlug(slug: string) {
+  try {
+    const contentPath = getDocsContentPath(slug);
+    const rawMdx = await fs.readFile(contentPath, "utf-8");
+    return await parseMdx<BaseMdxFrontmatter>(rawMdx);
   } catch (err) {
     console.log(err);
   }
 }
 
-export async function getTocs(slug: string) {
-  const contentPath = getContentPath(slug);
+export async function getDocsTocs(slug: string) {
+  const contentPath = getDocsContentPath(slug);
   const rawMdx = await fs.readFile(contentPath, "utf-8");
   // captures between ## - #### can modify accordingly
   const headingsRegex = /^(#{2,4})\s(.+)$/gm;
@@ -92,8 +106,17 @@ function sluggify(text: string) {
   return slug.replace(/[^a-z0-9-]/g, "");
 }
 
-function getContentPath(slug: string) {
+function getDocsContentPath(slug: string) {
   return path.join(process.cwd(), "/contents/docs/", `${slug}.mdx`);
+}
+
+function justGetFrontmatterFromMD<Frontmatter>(rawMd: string): Frontmatter {
+  return matter(rawMd).data as Frontmatter;
+}
+
+// TODO:
+export async function getAllChilds(pathString: string) {
+  const parentPath = path.join(process.cwd(), "/contents/docs/", pathString);
 }
 
 // for copying the code
@@ -115,3 +138,46 @@ const postProcess = () => (tree: any) => {
     }
   });
 };
+
+export type Author = {
+  avatar?: string;
+  handle: string;
+  username: string;
+  handleUrl: string;
+};
+
+export type BlogMdxFrontmatter = BaseMdxFrontmatter & {
+  date: string;
+  authors: Author[];
+  cover: string;
+};
+
+export async function getAllBlogStaticPaths() {
+  try {
+    const blogFolder = path.join(process.cwd(), "/contents/blogs/");
+    const res = await fs.readdir(blogFolder);
+    return res.map((file) => file.split(".")[0]);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+export async function getAllBlogs() {
+  const blogFolder = path.join(process.cwd(), "/contents/blogs/");
+  const files = await fs.readdir(blogFolder);
+  return await Promise.all(
+    files.map(async (file) => {
+      const filepath = path.join(process.cwd(), `/contents/blogs/${file}`);
+      const rawMdx = await fs.readFile(filepath, "utf-8");
+      return {
+        ...(await parseMdx<BlogMdxFrontmatter>(rawMdx)),
+        slug: file.split(".")[0],
+      };
+    })
+  );
+}
+
+export async function getBlogForSlug(slug: string) {
+  const blogs = await getAllBlogs();
+  return blogs.find((it) => it.slug == slug);
+}

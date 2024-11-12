@@ -1,20 +1,20 @@
 import { buttonVariants } from "@/components/ui/button";
 import { page_routes } from "@/lib/routes-config";
-import { MoveUpRightIcon, TerminalIcon } from "lucide-react";
+import { MoveUpRightIcon } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex sm:min-h-[91vh] min-h-[88vh] flex-col items-center justify-center text-center px-2 py-8">
+    <div className="flex sm:min-h-[92vh] min-h-[85vh] flex-col items-center justify-center text-center px-2 py-8">
       <Link
         href="https://github.com/PostGuitarist/liberty-macos-docs"
         target="_blank"
-        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4"
+        className="mb-5 sm:text-lg flex items-center gap-2 underline underline-offset-4 sm:-mt-12"
       >
-        Join us on GitHub{" "}
+        Follow along on GitHub{" "}
         <MoveUpRightIcon className="w-4 h-4 font-extrabold" />
       </Link>
-      <h1 className="text-3xl font-bold mb-4 sm:text-7xl">
+      <h1 className="text-3xl font-bold mb-4 sm:text-6xl">
         Welcome to the LU CS Documentation
       </h1>
       <p className="mb-8 sm:text-xl max-w-[800px] text-muted-foreground">
