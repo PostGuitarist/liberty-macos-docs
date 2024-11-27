@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "LU CS Docs",
@@ -24,14 +25,22 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MP22CB0NGP"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-MP22CB0NGP');
-        </script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MP22CB0NGP"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MP22CB0NGP');
+            `
+          }}
+        />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
