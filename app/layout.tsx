@@ -23,6 +23,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MP22CB0NGP"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MP22CB0NGP');
+        </script>
+      </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
         suppressHydrationWarning
