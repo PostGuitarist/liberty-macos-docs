@@ -11,6 +11,12 @@ You must create an x86_64 VM that will be used in all of the O'Malley classes. T
     x86-64 VMs with a GUI are required. UTM/QEMU emulation is slow, and you may experience crashes with hevay resources like VSCode.
 </Note>
 
+<br />
+
+<Note title="Performance Warning" type="warning">
+    If you are using this documentation for Scheduler assignment in OS, you may experience slow performance and crashes.
+</Note>
+
 ## Pre-requisites
 
 - [UTM](https://mac.getutm.app/)
@@ -35,7 +41,7 @@ Now, there are some other settings you must change to get the best performance.
 
 ## Post-Ubuntu Install
 
-Finally, there are some drivers and other utilities you must install.
+There are some drivers and other utilities you must install.
 
 1. Open the terminal and run the following commands:
 
@@ -43,4 +49,46 @@ Finally, there are some drivers and other utilities you must install.
 sudo apt install build-essential
 sudo apt install nasm
 sudo apt install qemu-system-i386
+```
+
+## GitHub CLI Setup
+
+We recommend installing the GitHub CLI rather than VSCode. This will allow you to use the terminal to push and pull your code, and program on VSCode on your Mac.
+
+1. Open the terminal and run the following commands:
+
+```bash
+sudo apt update
+sudo apt install gh
+```
+
+2. Authenticate with GitHub:
+
+```bash
+gh auth login
+```
+
+3. Follow the prompts to authenticate with GitHub.
+
+Then, you can use the following commands to interact with your GitHub repository:
+
+```bash
+# Clone your repo
+gh repo clone <repo>
+cd <repo>
+
+# Push your code
+gh repo push
+
+# Pull your code
+gh repo pull
+
+# Create a new branch
+gh repo create <branch>
+
+# Switch to a branch
+gh repo switch <branch>
+
+# Delete a branch
+gh repo delete <branch>
 ```
