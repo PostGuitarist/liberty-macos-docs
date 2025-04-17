@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from "@vercel/analytics/react";
 
 import { GeistSans } from "geist/font/sans";
@@ -22,9 +22,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID ? process.env.NEXT_PUBLIC_GA_ID : "G-XXXXXXXX";
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleTagManager gtmId="G-G2CWQ1H9ZD" />
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
         suppressHydrationWarning
@@ -43,6 +44,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
       </body>
+      <GoogleAnalytics gaId={`${GA_ID}`} />
     </html>
   );
 }
