@@ -1,17 +1,13 @@
 ---
-title: "x86_64 VM"
-description: "This section provides an overview of setting up an x86_64 VM."
+title: x86_64 VM
+description: This section provides an overview of setting up an x86_64 VM.
 ---
 
 You must create an x86_64 VM that will be used in all of the O'Malley classes. This is a one-time setup that will be used throughout the trilogy.
 
-<br />
-
 <Note title="Important" type="warning">
-    x86-64 VMs with a GUI are required. UTM/QEMU emulation is slow, and you may experience crashes with hevay resources like VSCode.
+    x86-64 VMs with a GUI are required. UTM/QEMU emulation is slow, and you may experience crashes with heavy resources like VS Code.
 </Note>
-
-<br />
 
 <Note title="Performance Warning" type="warning">
     If you are using this documentation for Scheduler assignment in OS, you may experience slow performance and crashes.
@@ -26,10 +22,10 @@ You must create an x86_64 VM that will be used in all of the O'Malley classes. T
 1. Open UTM and click the `+` button to create a new VM
 2. Select `Emulate` and then `Linux`
 3. Select the x86_64 Ubuntu ISO. You must use the version O'Malley has given you
-3. Set the `RAM` to **AT LOT** of your total RAM. We recommend at least `8GB` if you have 32GB
-4. Set the `CPU Cores` to **AT LOT** of your total cores. We recommend at least `4` if you have an 8-core CPU
-5. Set the `Storage`. We recommend at least `32GB`
-6. Set a `Shared Directory Path`. We recommend just using your `Downloads` folder
+4. Set the `RAM` to **A LOT** of your total RAM. We recommend at least `8GB` if you have 32GB
+5. Set the `CPU Cores` to **A LOT** of your total cores. We recommend at least `4` if you have an 8-core CPU
+6. Set the `Storage`. We recommend at least `32GB`
+7. Set a `Shared Directory Path`. We recommend just using your `Downloads` folder
 
 ## Post-Setup
 
@@ -53,7 +49,7 @@ sudo apt install qemu-system-i386
 
 ## GitHub CLI Setup
 
-We recommend installing the GitHub CLI rather than VSCode. This will allow you to use the terminal to push and pull your code, and program on VSCode on your Mac.
+We recommend installing the GitHub CLI rather than VS Code. This will allow you to use the terminal to push and pull your code, and program on VS Code on your Mac.
 
 1. Open the terminal and run the following commands:
 
@@ -78,17 +74,17 @@ gh repo clone <repo>
 cd <repo>
 
 # Push your code
-gh repo push
+git push
 
 # Pull your code
-gh repo pull
+git pull
 
-# Create a new branch
-gh repo create <branch>
+# Create and switch to a new branch
+git checkout -b <branch>
 
 # Switch to a branch
-gh repo switch <branch>
+git checkout <branch>
 
 # Delete a branch
-gh repo delete <branch>
+git branch -d <branch>
 ```
